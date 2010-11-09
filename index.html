@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title></title>
+  <title>Brew Your Own</title>
 
   <link rel="stylesheet" href="css/reset.css" type="text/css"/>
   <link rel="stylesheet" href="css/showoff.css" type="text/css"/>
@@ -33,7 +33,7 @@
 
   <script type="text/javascript">
   $(function(){
-    setupPreso(true, '.');
+    setupPreso(false, '.');
   });
   </script>
 </head>
@@ -63,8 +63,419 @@
   <span id="debugInfo"></span>
 </div>
 
-<div id="slides" class="offscreen" >
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/1">
+<p><a href="http://github.com/mattscilipoti/showoff_brew_your_own">
+  <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+</img></a>
 
+<h1>Brew Your Own</h1>
+
+<h2>An Experience Report</h2></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/2">
+<h1><strong>mxcl</strong>.github.com/<strong>homebrew</strong>/</h1>
+
+<h2>The missing package manager for OS X.</h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/3">
+<h1><strong>wiki</strong></h1>
+
+<h1>Formula-Cookbook</h1></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/4">
+<h1><strong>steps</strong></h1>
+
+<hr/>
+
+<ul>
+<li>search</li>
+<li>create</li>
+<li>edit (meta, build, dependencies)</li>
+<li>test</li>
+<li>pull request</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/5">
+<h1><strong>example</strong></h1>
+
+<hr/>
+
+<h1><em>dialog</em></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/6">
+<h1><strong>motivation</strong></h1>
+
+<hr/>
+
+<h1><em>cucumber-farmer</em></h1></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/7">
+<h1><strong>search</strong></h1>
+
+<hr/>
+
+<ul>
+<li>issue tracker on github</li>
+<li><code>$ brew search dialog</code></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/8">
+<h1>Formula we don&#x2019;t accept</h1></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/9">
+<h1><strong>steps</strong></h1>
+
+<hr/>
+
+<ul>
+<li><del><em>search</em></del></li>
+<li><strong>create</strong></li>
+<li>edit (meta, build, dependencies)</li>
+<li>test</li>
+<li>pull request</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/10">
+<h1><strong>create</strong></h1>
+
+<hr/>
+
+<pre><code>$ brew create &lt;url to tarball&gt;
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/11">
+<h2>hint</h2>
+
+<hr/>
+
+<h1>wikipedia</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="brew_your_own/slides/12">
+<h1><strong>create</strong></h1>
+
+<hr/>
+
+<pre><code><code class="command">$ brew create ftp://invisible-island.net/dialog/dialog.tar.gz</code><code class="result">
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/13">
+<h1><strong>create</strong></h1>
+
+<hr/>
+
+<pre><code>$ brew create ftp://invisible-island.net/dialog/dialog.tar.gz
+Formula name [dialog]: 
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="brew_your_own/slides/14">
+<h1><strong>create</strong></h1>
+
+<hr/>
+
+<pre><code>$ brew create ftp://invisible-island.net/dialog/dialog.tar.gz
+Formula name [dialog]:
+Warning: Version cannot be determined from URL.
+You'll need to add an explicit 'version' to the formula.
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/15">
+<pre class="sh_Ruby"><code>require 'formula'
+
+class Dialog &lt;Formula
+  url 'ftp://invisible-island.net/dialog/dialog.tar.gz'
+  homepage ''
+  md5 ''
+
+  # depends_on 'cmake'
+
+  def install
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
+    # system "cmake . #{std_cmake_parameters}"
+    system "make install"
+  end
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/16">
+<h1><strong>steps</strong></h1>
+
+<hr/>
+
+<ul>
+<li><del><em>search</em></del></li>
+<li><del><em>create</em></del></li>
+<li><strong>edit</strong> (meta, build, dependencies)</li>
+<li>test</li>
+<li>pull request</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/17">
+<h1><strong>meta</strong></h1>
+
+<hr/>
+
+<pre class="sh_Ruby"><code>require 'formula'
+
+class Dialog &lt;Formula
+  url 'ftp://invisible-island.net/dialog/dialog.tar.gz'
+  homepage 'http://invisible-island.net/dialog/'
+  md5 '519c0a0cbac28ddb992111ec2c3f82aa'
+  version '1.1.20070704'</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/18">
+<h1>MD5</h1>
+
+<hr/>
+
+<ul>
+<li>(preferred) Read from website</li>
+<li><code>$ md5 /path/to/tarball</code></li>
+<li><code>$ brew install -i foo</code></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/19">
+<h1><strong>build</strong></h1>
+
+<hr/>
+
+<pre class="sh_Ruby"><code>  def install
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
+    # system "cmake . #{std_cmake_parameters}"
+    system "make install"
+  end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/20">
+<h1><strong>build</strong></h1>
+
+<hr/>
+
+<h1>README</h1>
+
+<ul>
+<li>cmake</li>
+<li>autotools</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/21">
+<h1>Library/Formula/</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/22">
+<h1>I couldn't find anything helpful</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/23">
+<h1>Prayed to the gods of</h1>
+
+<h1><strong>default</strong></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/24">
+<h1><strong>You</strong></h1>
+
+<h1>should read</h1>
+
+<h1>the wiki</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/25">
+<h1><strong>seriously</strong></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/26">
+<h1><strong>build</strong></h1>
+
+<hr/>
+
+<pre class="sh_Ruby"><code>  def install
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
+    # system "cmake . #{std_cmake_parameters}"
+    system "make install"
+  end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/27">
+<h1><strong>build</strong></h1>
+
+<hr/>
+
+<pre class="sh_Ruby"><code>  def install
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
+    system "make install"
+  end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/28">
+<h1><strong> depends_on</strong></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/29">
+<h1><code># depends_on 'cmake'</code></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/30">
+<h2><code>otool -L /usr/local/bin/dialog</code></h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/31">
+<h1>$ brew install -i foo</h1>
+
+<h1>$ brew install -vd foo</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/32">
+<pre class="sh_Bash"><code>$ otool -L /usr/local/bin/dialog
+/usr/local/bin/dialog:
+    /usr/lib/libncurses.5.4.dylib (compatibility version 5.4.0, current version 5.4.0)
+    /usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)
+    /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 125.2.0)</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/33">
+<h1>Library/Formula/</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/34">
+<pre class="sh_Ruby"><code>depends_on 'libiconv'</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/35">
+<pre class="sh_Ruby"><code>require 'formula'
+
+class Dialog &lt;Formula
+  url 'ftp://invisible-island.net/dialog/dialog.tar.gz'
+  homepage 'http://invisible-island.net/dialog/'
+  md5 '519c0a0cbac28ddb992111ec2c3f82aa'
+  version '1.1.20070704'
+
+  depends_on 'libiconv'
+
+  def install
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
+    system "make install"
+  end
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/36">
+<h1><strong>steps</strong></h1>
+
+<hr/>
+
+<ul>
+<li><del><em>search</em></del></li>
+<li><del><em>create</em></del></li>
+<li><del><em>edit (meta, build, dependencies)</em></del></li>
+<li><strong>test</strong></li>
+<li>pull request</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/37">
+<h1>$ brew install -vd foo</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/38">
+<h1>default man page is</h1>
+
+<h1>top levelfolder</h1></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="brew_your_own/slides/39">
+<h1><strong>--mandir</strong></h1>
+
+<hr/>
+
+<pre class="sh_Ruby"><code>  def install
+    # Note: default man page is top levelfolder, added --mandir
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}", "--mandir=#{man}"
+    system "make install"
+  end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/40">
+<h1><strong>steps</strong></h1>
+
+<hr/>
+
+<ul>
+<li><del><em>search</em></del></li>
+<li><del><em>create</em></del></li>
+<li><del><em>edit (meta, build, dependencies)</em></del></li>
+<li><del>test</del></li>
+<li><strong>pull request</strong></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/41">
+<ul>
+<li>fork</li>
+<li><code>$ git checkout --branch dialog</code></li>
+<li><code>$ cp ???</code></li>
+<li>pull request</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="brew_your_own/slides/42">
+<pre class="sh_Ruby"><code>require 'formula'
+
+class Dialog &lt;Formula
+  url 'ftp://invisible-island.net/dialog/dialog.tar.gz'
+  homepage 'http://en.wikipedia.org/wiki/Dialog_(software)'
+  # wikipedia page is more complete than (and contains link to)
+  # homepage 'http://invisible-island.net/dialog/'
+  md5 '519c0a0cbac28ddb992111ec2c3f82aa'
+  version '1.1.20070704'
+
+  # Listing from `otool -L /usr/local/bin/dialog`
+  #     /usr/lib/libncurses.5.4.dylib (compatibility version 5.4.0, current version 5.4.0)
+  #     /usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)
+  #     /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 125.2.0)
+
+  depends_on 'libiconv'
+  # TODO: review these dependencies
+  # depends_on 'ncurses'
+  # depends_on 'System'
+
+  def install
+    # Note: default man page is top levelfolder, added --mandir
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}", "--mandir=#{man}"
+    system "make install"
+  end
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="brew_your_own/slides/43">
+<h1><strong>steps</strong></h1>
+
+<hr/>
+
+<ul>
+<li><del><em>search</em></del></li>
+<li><del><em>create</em></del></li>
+<li><del><em>edit (meta, build, dependencies)</em></del></li>
+<li><del>test</del></li>
+<li><del>pull request</del></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/44">
+<h1><em>psych</em></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/45">
+<h1><code>brew install libiconv</code></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/46">
+<pre><code>$ otool -L /usr/local/bin/dialog
+/usr/local/bin/dialog:
+    /usr/lib/libncurses.5.4.dylib (compatibility version 5.4.0, current version 5.4.0)
+    /usr/local/Cellar/libiconv/1.13.1/lib/libiconv.2.dylib (compatibility version 8.0.0, current version 8.0.0)
+    /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 125.2.0)
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="brew_your_own/slides/47">
+<h1><strong>feedback</strong></h1>
+
+<hr/>
+
+<ul>
+<li>"Please use the proper homepage rather than wikipedia."</li>
+<li>"Those dependencies both come already with OSX so don't worry."</li>
+<li>"Please remove all the comments as a result."</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="brew_your_own/slides/48">
+<pre class="sh_Ruby"><code>require 'formula'
+
+class Dialog &lt;Formula
+  url 'ftp://invisible-island.net/dialog/dialog.tar.gz'
+  homepage 'http://invisible-island.net/dialog/'
+  md5 '519c0a0cbac28ddb992111ec2c3f82aa'
+  version '1.1.20070704'
+
+  depends_on 'libiconv'
+
+  def install
+    # Note: default man page is top levelfolder, added --mandir
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}", "--mandir=#{man}"
+    system "make install"
+  end
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/49">
+<h1>surprise !</h1>
+
+<h2>The new commit is <em>already</em></h2>
+
+<h2>in the pull request.</h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/50">
+<h1>Done?</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/51">
+<h1>"Can I get those commits squished?"</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="brew_your_own/slides/52">
+<h1><strong>mxcl</strong>.github.com/<strong>homebrew</strong>/</h1>
+
+<h1>wiki: Formula-Cookbook</h1>
+
+<hr/>
+
+<h1>github.com/<strong>mattscilipoti</strong>/</h1>
+
+<h1>showoff_brew_your_own</h1>
+
+<hr/>
+
+<h1><em>@mattscilipoti</em></h1></div>
+</div>
 </div>
 
 </body>
