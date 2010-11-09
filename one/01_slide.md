@@ -4,9 +4,10 @@
 
 !SLIDE
 # __mxcl__.github.com/__homebrew__/
+## The missing package manager for OS X.
 
 !SLIDE
-# *Wiki*
+# __wiki__
 # Formula-Cookbook
 
 !SLIDE bullets
@@ -19,7 +20,14 @@
 * pull request
 
 !SLIDE
-# Example: dialog 
+# __example__
+---
+# _dialog_
+
+!SLIDE
+# __motivation__
+---
+# _cucumber-farmer_
 
 !SLIDE bullets
 # __search__
@@ -359,5 +367,10 @@
 # "Can I get those commits squished?"
 
 !SLIDE
-# github.com/__mattscilipoti__
-# @mattscilipoti
+# __mxcl__.github.com/__homebrew__/
+# wiki: Formula-Cookbook
+----
+# github.com/__mattscilipoti__/
+# showoff_brew_your_own
+---
+# _@mattscilipoti_
