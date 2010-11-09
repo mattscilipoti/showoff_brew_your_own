@@ -30,6 +30,9 @@
 # _cucumber-farmer_
 
 !SLIDE
+# __daunting?__
+
+!SLIDE
 # __wiki__
 # Formula-Cookbook
 
@@ -56,7 +59,7 @@
 ----
 * <del>_search_</del>
 * **create**
-* edit (meta, build, dependencies)
+* edit
 * test
 * pull request
 
