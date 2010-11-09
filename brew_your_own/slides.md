@@ -20,7 +20,7 @@
 ----
 * search
 * create
-* edit (meta, build, dependencies)
+* edit
 * test
 * pull request
 
@@ -55,7 +55,7 @@
 !SLIDE
 # __create__
 ----
-    $ brew create <url to tarball>
+    $ brew create <url/to/tarball>
 
 !SLIDE
 ## hint
@@ -87,7 +87,7 @@
     @@@ Ruby
     require 'formula'
 
-    class Dialog <Formula
+    class Dialog < Formula
       url 'ftp://invisible-island.net/dialog/dialog.tar.gz'
       homepage ''
       md5 ''
