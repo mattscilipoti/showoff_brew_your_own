@@ -5,6 +5,8 @@
 # Brew Your Own
 ## An Experience Report
 
+##@mattscilipoti
+
 !SLIDE
 # __mxcl__.github.com/__homebrew__/
 ## The missing package manager for OS X.
@@ -124,9 +126,12 @@
 !SLIDE bullets
 # MD5
 ----
-* (preferred) Read from website
-* `$ md5 /path/to/tarball`
-* `$ brew install -i foo`
+* Read it (preferred)
+* Calculate it: `$ md5 /path/to/tarball`
+* Install it: `$ brew install -i foo`
+
+!SLIDE
+# __build__
 
 !SLIDE
 # __build__
@@ -165,6 +170,17 @@
 # __seriously__
 
 !SLIDE
+# I installed it.
+
+!SLIDE
+# that was
+<br/>
+#__easy__
+
+!SLIDE
+# I <span class='webding'> </span> smart defaults
+
+!SLIDE
 # __build__
 ----
     @@@ Ruby
@@ -185,6 +201,15 @@
         system "make install"
       end
 
+!SLIDE bullets
+# __steps__
+----
+* <del>_search_</del>
+* <del>_create_</del>
+* **edit** (meta, _[build]_, _[dependencies]_)
+* test
+* pull request
+
 !SLIDE
 # __ depends_on__
 
@@ -193,6 +218,9 @@
 
 !SLIDE
 ## `otool -L /usr/local/bin/dialog`
+
+!SLIDE
+## `otool -L /usr/local/`__bin__`/dialog`
 
 !SLIDE
 #    $ brew install -i foo
@@ -206,8 +234,12 @@
     	/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)
     	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 125.2.0)
 
-!SLIDE
+!SLIDE bullets
 # Library/Formula/
+
+*	libncurses
+*	libiconv
+*	libSystem
 
 !SLIDE
     @@@ Ruby
@@ -271,9 +303,11 @@
 * **pull request**
 
 !SLIDE bullets
+# __pull request__
+---
 * fork
 * `$ git checkout --branch dialog`
-* `$ cp ???`
+* `$ cp /usr/local/Library/Formula/dialog.rb path/to/homebrew/Library/Formula`
 * pull request
 
 !SLIDE smaller
