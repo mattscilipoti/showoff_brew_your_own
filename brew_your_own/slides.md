@@ -227,7 +227,6 @@
 #    $ brew install -vd foo
 
 !SLIDE
-    @@@ Bash
     $ otool -L /usr/local/bin/dialog
     /usr/local/bin/dialog:
     	/usr/lib/libncurses.5.4.dylib (compatibility version 5.4.0, current version 5.4.0)
