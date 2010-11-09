@@ -1,1 +1,5 @@
-{ "name": "My Preso", "sections": [ {"section":"one"} ]}
+{ 
+  "name": "Brew Your Own", 
+  "description": "An Experience report.  Creating a homebrew formula for the 'dialog' library. A 'showoff' presentation.",
+  "sections": [ {"section":"brew_your_own"} ]
+}
