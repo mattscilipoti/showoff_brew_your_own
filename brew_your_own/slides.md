@@ -4,12 +4,30 @@
 </a>
 # Brew Your Own
 ## An Experience Report
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 ##@mattscilipoti
 
 !SLIDE
 # __mxcl__.github.com/__homebrew__/
 ## The missing package manager for OS X.
+
+!SLIDE full-page
+![I present you... the ocean](lol-pelican-ocean.jpg)
+
+!SLIDE
+# __example__
+---
+# brew install _dialog_
+
+!SLIDE
+# __motivation__
+---
+# _cucumber-farmer_
 
 !SLIDE
 # __wiki__
@@ -23,16 +41,6 @@
 * edit
 * test
 * pull request
-
-!SLIDE
-# __example__
----
-# _dialog_
-
-!SLIDE
-# __motivation__
----
-# _cucumber-farmer_
 
 !SLIDE bullets
 # __search__
@@ -173,9 +181,9 @@
 # I installed it.
 
 !SLIDE
-# that was
+# it worked?!
 <br/>
-#__easy__
+#__easy peasy__
 
 !SLIDE
 # I <span class='webding'> </span> smart defaults
@@ -225,6 +233,7 @@
 !SLIDE
 #    $ brew install -i foo
 #    $ brew install -vd foo
+#    $ brew ninstall foo
 
 !SLIDE
     $ otool -L /usr/local/bin/dialog
