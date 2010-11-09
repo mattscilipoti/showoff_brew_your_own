@@ -1,3 +1,13 @@
 .webding {
   font-family: webdings;
 }
+
+/********************************
+* Syntax Highlighting
+*******************************/
+
+/* Strings */
+pre.sh_sourceCode .sh_string {
+  color: green;
+}
+
